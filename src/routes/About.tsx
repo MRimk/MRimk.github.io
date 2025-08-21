@@ -1,3 +1,5 @@
+import s from "./About.module.css";
+
 type Job = {
   role: string;
   company: string;
@@ -99,16 +101,24 @@ const universities: University[] = [
 export default function About() {
   return (
     <main className="mx-auto max-w-3xl p-6 font-sans">
-      <header className="mb-8">
-        <h1 className="text-3xl font-bold">Martynas Rimkevičius</h1>
-        <p className="text-sm opacity-80">
-          Master's Computer Science Student • martynas.rimkevicius2001@gmail.com
-          •{" "}
-          <a href="https://www.linkedin.com/in/martynas-rimkevicius/">
-            LinkedIn
-          </a>
-        </p>
-        {/* {yearsExp}+ yrs */}
+      <header className="mb-8 flex flex-col sm:flex-row sm:items-center gap-6">
+        <div className={s.avatar}>
+          <img
+            src="/images/martynas_rimkevicius.jpg"
+            alt="Martynas Rimkevičius"
+            className={s.img}
+          />
+        </div>
+        <div>
+          <h1 className="text-3xl font-bold">Martynas Rimkevičius</h1>
+          <p className="text-sm opacity-80">
+            Master's Computer Science Student •
+            martynas.rimkevicius2001@gmail.com •{" "}
+            <a href="https://www.linkedin.com/in/martynas-rimkevicius/">
+              LinkedIn
+            </a>
+          </p>
+        </div>
       </header>
 
       <section className="space-y-3 mb-8">

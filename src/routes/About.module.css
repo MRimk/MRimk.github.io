@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.avatar {
+  width: 256px;
+  height: 256px;
+  border-radius: 9px;
+  overflow: hidden;
+  flex: 0 0 auto;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.title {
+  font-size: 1.875rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+}
+.sub {
+  font-size: 0.875rem;
+  opacity: 0.8;
+  margin: 0;
+}
+.sub a {
+  text-decoration: underline;
+}
+@media (max-width: 640px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
