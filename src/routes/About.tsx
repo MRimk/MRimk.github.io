@@ -157,25 +157,27 @@ export default function About() {
 
       <section className="space-y-2">
         <h2 className="text-xl font-semibold">Skills</h2>
-        <dl className="grid grid-cols-[1cm_0fr] gap-x-4 gap-y-4">
-          <dt className="font-semibold text-right whitespace-nowrap">Coding</dt>
-          <dd>
-            C, C++, Python, Go, Kotlin, Scala, Java, Lean, R, MATLAB, Typescript
-          </dd>
-
-          <dt className="font-semibold text-right whitespace-nowrap">
-            Systems
-          </dt>
-          <dd>
-            TCP/IP network stack, Linux OS, distributed systems, databases and
-            query-based systems
-          </dd>
-
-          <dt className="font-semibold text-right whitespace-nowrap">
-            Teamworking
-          </dt>
-          <dd>Git, CI/CD management, Docker</dd>
-        </dl>
+        <table className="w-full border-collapse">
+          <tbody>
+            <tr className="align-top">
+              <th className="w-32 text-right pr-4 font-semibold">Coding</th>
+              <td>C, C++, Python, Go, Kotlin, Java, Coq, Typescript</td>
+            </tr>
+            <tr className="align-top">
+              <th className="w-32 text-right pr-4 font-semibold">Systems</th>
+              <td>
+                TCP/IP network stack, Linux OS, distributed systems, databases
+                and query-based systems
+              </td>
+            </tr>
+            <tr className="align-top">
+              <th className="w-32 text-right pr-4 font-semibold">
+                Teamworking
+              </th>
+              <td>Git, CI/CD management, Docker, Agile</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
     </main>
   );

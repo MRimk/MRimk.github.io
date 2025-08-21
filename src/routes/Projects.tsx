@@ -1,23 +1,18 @@
 import { Link } from "react-router-dom";
-import { cats, ageString, formatDate } from "../lib/markdown";
+import { projects } from "../lib/markdown";
 
 export default function Projects() {
   return (
     <section>
-      <h2>Projectes</h2>
+      <h2>Projects</h2>
       <div className="grid">
-        {cats.map((c) => (
-          <Link key={c.slug} to={`/projects/${c.slug}`} className="card">
-            <img src={c.image} alt={c.name} />
+        {projects.map((p) => (
+          <Link key={p.slug} to={`/projects/${p.slug}`} className="card">
+            <img src={p.image} alt={p.name} />
             <div className="card-body">
-              <h3>{c.name}</h3>
-              <p>
-                {c.breed} • {c.gender}
-              </p>
-              <p>
-                Gimė {formatDate(c.birthdate)} • {ageString(c.birthdate)}
-              </p>
-              {c.litter && <p className="muted">Vada: {c.litter}</p>}
+              <h3>{p.name}</h3>
+              <p>{p.type}</p>
+              <p>Year: {p.year}</p>
             </div>
           </Link>
         ))}
