@@ -48,7 +48,12 @@ export default function ProjectDetail() {
         )}
       </div>
       <p>
-        <Link to="/projects">Back to all projects</Link>
+        <Link
+          to="/projects"
+          className="inline-block px-6 py-3 rounded-xl bg-blue-600 text-white font-medium hover:bg-blue-700 transition"
+        >
+          Back to all projects
+        </Link>
       </p>
     </article>
   );
