@@ -1,11 +1,11 @@
 import { useParams, Link } from "react-router-dom";
-import { getProjectsBySlug} from "../lib/markdown";
+import { getProjectsBySlug } from "../lib/markdown-projects";
 
 export default function ProjectDetail() {
   const { slug } = useParams();
   const project = getProjectsBySlug(slug || "");
 
-  if (!project) return <p>Katė nerasta.</p>;
+  if (!project) return <p>Project not found.</p>;
 
   return (
     <article className="detail">
@@ -18,7 +18,34 @@ export default function ProjectDetail() {
         <p>
           <strong>Finished:</strong> {project.year}
         </p>
-        <div className="prose" dangerouslySetInnerHTML={{ __html: project.html }} />
+        <div
+          className="prose"
+          dangerouslySetInnerHTML={{ __html: project.html }}
+        />
+      </div>
+      {/* Action buttons */}
+      <div className="flex gap-4">
+        {project.pdf && (
+          <a
+            href={project.pdf}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-4 py-2 rounded-xl bg-blue-600 text-white font-medium hover:bg-blue-700 transition"
+          >
+            📄 Download PDF
+          </a>
+        )}
+
+        {project.link && (
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-4 py-2 rounded-xl bg-green-600 text-white font-medium hover:bg-green-700 transition"
+          >
+            🔗 Visit Project
+          </a>
+        )}
       </div>
       <p>
         <Link to="/projects">Back to all projects</Link>

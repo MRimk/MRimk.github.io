@@ -1,21 +1,19 @@
 import fm from 'front-matter'
 import { marked } from 'marked'
+import { slugify } from './markdownlib'
 
 export type ProjectFrontmatter = {
     name: string
     year: string
     type: string
     image: string
-    pdf?: string // Optional field for PDF link
+    pdf?: string // Optional field for PDF
+    link?: string // Optional field for external link
 }
 
 export type ProjectDoc = ProjectFrontmatter & { slug: string; html: string }
 
 const rawModules = import.meta.glob('../projects/*.md', { as: 'raw', eager: true }) as Record<string, string>
-
-function slugify(name: string) {
-    return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
-}
 
 export const projects: ProjectDoc[] = Object.entries(rawModules)
     .map(([_, raw]) => {
@@ -30,3 +28,5 @@ export const projects: ProjectDoc[] = Object.entries(rawModules)
 export function getProjectsBySlug(slug: string) {
     return projects.find((c) => c.slug === slug)
 }
+
+

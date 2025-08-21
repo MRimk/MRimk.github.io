@@ -4,6 +4,7 @@ import About from "./routes/About";
 import Projects from "./routes/Projects";
 import Interests from "./routes/Interests";
 import ProjectDetail from "./routes/ProjectDetail";
+import RunningReport from "./routes/RunningReport";
 import Layout from "./components/Layout";
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
           <Route path="/cv" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:slug" element={<ProjectDetail />} />
+          <Route path="/interests/:slug" element={<RunningReport />} />
           <Route path="/interests" element={<Interests />} />
         </Routes>
       </main>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { projects } from "../lib/markdown";
+import { projects } from "../lib/markdown-projects";
 
 export default function Projects() {
   return (

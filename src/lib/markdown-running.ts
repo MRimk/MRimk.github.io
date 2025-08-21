@@ -1,24 +1,25 @@
 import fm from 'front-matter'
 import { marked } from 'marked'
+import { slugify } from './markdownlib'
 
 export type ReportFrontmatter = {
     name: string
     date: string
     type: string
     distance: string
+    elevation?: string
     image: string
     time: string
+    place?: string
+    location?: string
+    results?: string
 }
 
 export type ReportDoc = ReportFrontmatter & { slug: string; html: string }
 
-const rawModules = import.meta.glob('../projects/*.md', { as: 'raw', eager: true }) as Record<string, string>
+const rawModules = import.meta.glob('../reports/*.md', { as: 'raw', eager: true }) as Record<string, string>
 
-function slugify(name: string) {
-    return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
-}
-
-export const projects: ReportDoc[] = Object.entries(rawModules)
+export const reports: ReportDoc[] = Object.entries(rawModules)
     .map(([_, raw]) => {
         const parsed = fm<ReportFrontmatter>(raw)
         const data = parsed.attributes
@@ -28,6 +29,6 @@ export const projects: ReportDoc[] = Object.entries(rawModules)
     })
     .sort((a, b) => a.name.localeCompare(b.name))
 
-export function getProjectsBySlug(slug: string) {
-    return projects.find((c) => c.slug === slug)
+export function getReportsBySlug(slug: string) {
+    return reports.find((c) => c.slug === slug)
 }
