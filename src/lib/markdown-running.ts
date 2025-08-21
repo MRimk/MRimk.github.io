@@ -1,15 +1,16 @@
 import fm from 'front-matter'
 import { marked } from 'marked'
 
-export type ProjectFrontmatter = {
+export type ReportFrontmatter = {
     name: string
-    year: string
+    date: string
     type: string
+    distance: string
     image: string
-    pdf?: string // Optional field for PDF link
+    time: string
 }
 
-export type ProjectDoc = ProjectFrontmatter & { slug: string; html: string }
+export type ReportDoc = ReportFrontmatter & { slug: string; html: string }
 
 const rawModules = import.meta.glob('../projects/*.md', { as: 'raw', eager: true }) as Record<string, string>
 
@@ -17,9 +18,9 @@ function slugify(name: string) {
     return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
 }
 
-export const projects: ProjectDoc[] = Object.entries(rawModules)
+export const projects: ReportDoc[] = Object.entries(rawModules)
     .map(([_, raw]) => {
-        const parsed = fm<ProjectFrontmatter>(raw)
+        const parsed = fm<ReportFrontmatter>(raw)
         const data = parsed.attributes
         const slug = slugify(data.name)
         const html = marked.parse(parsed.body) as string

@@ -6,3 +6,5 @@ export default function Interests() {
     </section>
   );
 }
+
+// for the future: write race reports here, same as with projects
