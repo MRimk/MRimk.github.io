@@ -12,7 +12,7 @@ export default function RunningReport() {
     <article className="detail">
       <img className="hero" src={report.image} alt={report.name} />
       <div>
-        <h2>{report.name}</h2>
+        <h2 className="text-xl font-semibold space-y-4 mb-8">{report.name}</h2>
         <p>
           <strong>Distance:</strong> {report.distance} in{" "}
           <strong>{report.time}</strong>
@@ -41,7 +41,7 @@ export default function RunningReport() {
           <strong>Type:</strong> {report.type}
         </p>
         <div
-          className="prose"
+          className="prose text-justify"
           dangerouslySetInnerHTML={{ __html: report.html }}
         />
       </div>

@@ -30,41 +30,8 @@
   object-fit: cover;
 }
 
-.text {
-  text-align: center;
-}
-
 @media (min-width: 768px) {
   .text {
     text-align: left;
   }
-}
-
-.heading {
-  font-size: 2.25rem; /* ~36px */
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin: 0 0 1rem 0;
-}
-
-.paragraph {
-  font-size: 1.125rem; /* ~18px */
-  line-height: 1.6;
-  margin: 0 auto 1rem auto;
-  max-width: 40rem;
-}
-
-.cta {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
-  background-color: #2563eb; /* blue-600 */
-  color: white;
-  font-weight: 500;
-  text-decoration: none;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.cta:hover {
-  background-color: #1e40af; /* blue-700 */
 }

@@ -11,7 +11,7 @@ export default function ProjectDetail() {
     <article className="detail">
       <img className="hero" src={project.image} alt={project.name} />
       <div>
-        <h2>{project.name}</h2>
+        <h2 className="text-xl font-semibold space-y-4 mb-8">{project.name}</h2>
         <p>
           <strong>Type:</strong> {project.type}
         </p>
